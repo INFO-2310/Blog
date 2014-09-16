@@ -11,9 +11,10 @@
 #
 
 class User < ActiveRecord::Base
+  has_secure_password
 
   def name
-    “#{ self.fname } #{ self.lname }”
+    "#{ self.fname } #{ self.lname }"
   end
 
 end

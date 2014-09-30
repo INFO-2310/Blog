@@ -9,12 +9,12 @@
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: MyString
-  body: MyText
-
-two:
-  title: MyString
-  body: MyText
+FactoryGirl.define do
+  factory :post do
+    title 'This works'
+    body 'Very nice'
+  end
+  factory :invalid_post, class: Post do
+    body 'Decapitated'
+  end
+end

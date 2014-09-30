@@ -13,6 +13,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    s = Session.new(user_id: @user.id)
+    s.save_with_session_code
+    cookies.permanent[:session_code] = s.session_code
+
     redirect_to @user
   end
 

@@ -9,3 +9,20 @@
   </div><!--12-->
 </div><!--row-->
 
+<div class="row">
+  <div class="large-12 columns">
+    <h4>Comments</h4>
+    <% @post.comments.each do |comment| %>
+      <h6><%= comment.user.name %></h6>
+      <p><%= comment.body %></p>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="large-12 columns">
+    <h5>New Comment</h5>
+    <%= render 'comments/form' %>
+  </div>
+</div>

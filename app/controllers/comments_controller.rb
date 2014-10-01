@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
 
   # POST /comments
   # POST /comments.json
+  include SessionsHelper
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id

@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     @comment = Comment.new
     curr_user = current_user
     @user_name = curr_user.name
-    @user_id = curr_user.id
     @post_id = @post.id
   end
   

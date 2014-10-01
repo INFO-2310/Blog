@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: sessions
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  session_code :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 class Session < ActiveRecord::Base
   belongs_to :user
 

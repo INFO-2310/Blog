@@ -1,6 +1,6 @@
 var Comment = React.createClass({
   getInitialState: function() {
-    return { likeCount: this.props.comment.likeCount }
+    return { likeCount: this.props.comment.like_count }
   },
   like: function() {
     var newLikeCount = self.state.likeCount + 1;

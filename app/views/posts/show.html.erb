@@ -5,7 +5,9 @@
     <p><%= @post.body %></p>
 
     <%= link_to 'Back', posts_path %>
-    <%= link_to 'Edit', edit_post_path %>
+    <% if !current_user.nil? %>
+      <%= link_to 'Edit', edit_post_path %>
+    <% end %>
   </div><!--12-->
 </div><!--row-->
 
@@ -19,10 +21,14 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="large-12 columns">
     <h5>New Comment</h5>
-    <%= render 'comments/form' %>
+    <% if !current_user.nil? %>
+      <%= render 'comments/form' %>
+    <% else %>
+      <p>You must create an account and log in to access this feature.</p>
+      <%= link_to 'Log in', new_session_path %>
+    <% end %>
   </div>
 </div>

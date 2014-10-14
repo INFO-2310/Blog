@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include SessionsHelper
   def index
     @posts = Post.all
   end
@@ -13,7 +14,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes([:comments => :user]).find(params[:id])
+    @comment = Comment.new
+    curr_user = current_user
+    @user_name = curr_user.name
+    @post_id = @post.id
   end
   
   def test

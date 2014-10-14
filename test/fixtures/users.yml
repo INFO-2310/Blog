@@ -11,14 +11,14 @@
 #  password_digest :string(255)
 #
 
-class User < ActiveRecord::Base
-  has_secure_password
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-  has_many :comments
+one:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
 
-  def name
-    "#{ self.fname } #{ self.lname }"
-  end
-
-end
-
+two:
+  first_name: MyString
+  last_name: MyString
+  email: MyString

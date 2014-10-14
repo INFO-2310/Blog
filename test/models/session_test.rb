@@ -9,11 +9,10 @@
 #  updated_at   :datetime
 #
 
-class Session < ActiveRecord::Base
-  belongs_to :user
+require 'test_helper'
 
-  def save_with_session_code
-    self.session_code = SecureRandom.urlsafe_base64 unless self.session_code
-    self.save
-  end
+class SessionTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

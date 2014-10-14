@@ -11,14 +11,10 @@
 #  password_digest :string(255)
 #
 
-class User < ActiveRecord::Base
-  has_secure_password
+require 'test_helper'
 
-  has_many :comments
-
-  def name
-    "#{ self.fname } #{ self.lname }"
-  end
-
+class UserTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
-

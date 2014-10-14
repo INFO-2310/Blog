@@ -9,11 +9,12 @@
 #  updated_at   :datetime
 #
 
-class Session < ActiveRecord::Base
-  belongs_to :user
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-  def save_with_session_code
-    self.session_code = SecureRandom.urlsafe_base64 unless self.session_code
-    self.save
-  end
-end
+one:
+  user_id: 1
+  session_code: MyString
+
+two:
+  user_id: 1
+  session_code: MyString

@@ -29,10 +29,8 @@ class PostsController < ApplicationController
   end
 
   def append_feed
-    posts = Post.where("user_id = ? AND created_at < ?", current_user.id, params[:time].to_time)[params[:current_length].to_i,20]
-    posts_html = ""
-    posts.each{|post| posts_html << '<h2><a href="/posts/"' + post.id.to_s + '">' + post.title + '</a></h2><p>' + post.body + '</p><hr />'} unless posts.nil?
-    render json: posts_html.html_safe
+    @posts = Post.where("user_id = ? AND created_at < ?", current_user.id, params[:time].to_time)[params[:current_length].to_i,20]
+    render partial: 'posts/index'
   end
 
   def update

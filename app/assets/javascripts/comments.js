@@ -3,14 +3,18 @@ var Comment = React.createClass({
     return { likeCount: this.props.comment.like_count }
   },
   like: function() {
-    var newLikeCount = self.state.likeCount + 1;
+    var newLikeCount = this.state.likeCount + 1;
     this.setState({ likeCount: newLikeCount });
-    var commentURL = '/comments/' + this.props.comment.id;
-    $.post(commentURL, {
-      comment: {
+    comment = { 
+      comment: { 
         likeCount: newLikeCount
-      }
-    });
+      },
+      authenticity_token: $("meta[name='csrf-token']").attr('content')
+    };
+    var r = new XMLHttpRequest();
+    r.open("PATCH", ('/comments/' + this.props.comment.id), true);
+    r.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    r.send(JSON.stringify((comment)));
   },
   render: function() {
     return React.DOM.div({
